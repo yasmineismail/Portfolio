@@ -1,13 +1,114 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;900&family=Space+Mono:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Wallpoet&display=swap");
+/* Start Variables */
+:root {
+  --main-color: #842caa;
+  --second-color: #d1d1d1;
+  --third-color: #bdbdbd;
+  --transparent-color: rgb(15 116 143 / 70%);
+  --section-padding: 80px;
+  --second-font: "Poppins", sans-serif;
+}
+/* End Variables */
+
+/* Start Global Rules */
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-family: "Space Mono", monospace;
+  background-color: #04061e;
+
+  /* background: rgb(7, 7, 9);
+  background: linear-gradient(
+    90deg,
+    rgba(7, 7, 9, 1) 0%,
+    rgba(3, 3, 48, 0.9780287114845938) 100%
+  ); */
+  /*background-color: #01050a;
+  color: var(--second-color);
+  /*background-color: #03040c;*/
+  /*background-color: #04061e;*/
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.container {
+  padding: 50px 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.main-title {
+  margin-bottom: 70px;
+}
+.main-title p {
+  font-size: 60px;
+
+  /* color: #551156; */
+  /* color: rgba(236, 194, 255, 0.24); */
+  color: rgba(132, 44, 170, 0.363);
+  font-family: "Wallpoet", cursive;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.btn {
+  color: var(--main-color);
+}
+button.btn {
+  background-color: transparent;
+  border: 2px solid;
+  margin: 20px 0;
+  padding: 10px;
+  cursor: pointer;
+  width: 180px;
+  font-size: 18px;
+  transition: 0.3s;
+}
+button.btn:hover,
+button.btn:focus {
+  box-shadow: inset 180px 0 0 0 var(--main-color);
+  color: var(--second-color);
+  border-color: var(--main-color);
+}
+@media (max-width: 768px) {
+  .main-title p {
+    font-size: 40px;
+  }
+}
+@media (max-width: 380px) {
+  .container {
+    width: 350px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+  .container {
+    width: 1320px;
+  }
 }

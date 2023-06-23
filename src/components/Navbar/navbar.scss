@@ -1,0 +1,123 @@
+.nav {
+  display: flex;
+  height: 85px;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  justify-content: space-between;
+  padding-left: 80px;
+  padding-right: 80px;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  @media (min-width: 1400px) {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+  @media (max-width: 992px) {
+    padding-left: 10px;
+    padding-right: 50px;
+  }
+  .logo {
+    flex: 2;
+    a {
+      color: var(--main-color);
+      font-size: 25px;
+      font-family: "Press Start 2P", cursive;
+      font-weight: bold;
+    }
+    img {
+      width: 200px;
+    }
+  }
+  .nav-header {
+    flex: 5;
+    .nav-web {
+      display: flex;
+      list-style: none;
+      align-items: center;
+      li {
+        margin: 15px;
+        a {
+          font-size: 18px;
+          transition: 0.3s;
+          color: var(--second-color);
+          cursor: pointer;
+          &:hover {
+            color: var(--main-color);
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 992px) {
+      border-bottom-left-radius: 500px;
+      width: 350px;
+      height: 350px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      &.background-on {
+        background-color: rgba(85, 17, 86, 0.56);
+        transition: all 0.5s ease-out;
+      }
+      .nav-web {
+        flex-direction: column;
+        margin: 60px;
+        &.nav-mobile {
+          display: none;
+        }
+        li {
+          margin: 5px;
+        }
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    .mobile-button {
+      width: 30px;
+      height: 30px;
+      position: relative;
+      cursor: pointer;
+      span {
+        display: block;
+        background-color: var(--second-color);
+
+        &.label {
+          position: absolute;
+          height: 1px;
+          width: 100%;
+          left: 50%;
+          top: 50%;
+          transition: ease-out 0.2s all;
+        }
+        &.label1 {
+          top: 25%;
+          transform: translate(-50%) rotate(0);
+        }
+        &.label2 {
+          left: 0%;
+        }
+        &.label3 {
+          top: 75%;
+          transform: translate(-50%, 0%) rotate(0);
+        }
+        &.labelclose {
+          transform: translate(-50%, -50%) rotate(-45deg);
+        }
+        &.labelclose2 {
+          transform: translate(-50%, -50%) rotate(45deg);
+        }
+        &.close {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.colorChange {
+  backdrop-filter: blur(20px);
+}

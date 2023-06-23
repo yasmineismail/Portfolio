@@ -1,0 +1,196 @@
+.portfolio {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  position: relative;
+
+  .container {
+    .portfolio-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 70px 100px;
+      .work {
+        flex-basis: 30%;
+        box-shadow: 0 7px 29px 0 hsla(240, 5%, 41%, 0.2);
+        border-radius: 5px;
+        padding: 5px;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        img {
+          width: 100%;
+          border-radius: 7px;
+          padding: 5px;
+        }
+        .caption {
+          color: var(--second-color);
+
+          h4 {
+            color: var(--second-color);
+            font-size: 15px;
+            font-weight: 100;
+            text-align: center;
+          }
+          p {
+            font-size: 12px;
+            color: rgb(129, 125, 125);
+            align-self: self-end;
+          }
+        }
+      }
+    }
+    .portfolio-popup {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      right: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      overflow-y: scroll;
+
+      .pp-content {
+        width: 80%;
+        background-color: rgba(85, 17, 86, 0.952);
+        padding: 40px 15px;
+        border-radius: 30px;
+        position: absolute;
+        top: 10%;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        height: 80%;
+        .pp-header {
+          position: absolute;
+          color: #bdbdbd;
+          top: -15px;
+          right: -15px;
+          height: 40px;
+          width: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          cursor: pointer;
+          background-color: rgba(85, 17, 86, 0.61);
+          box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+          img {
+            width: 50%;
+            height: 50%;
+          }
+        }
+
+        .carousel-track-container {
+          position: relative;
+          height: 80%;
+          width: 90%;
+          margin: auto;
+          .carousel-track {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 250ms ease-in;
+            .carousel-slide {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              .carousel-image {
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+              }
+            }
+          }
+
+          .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 1s;
+
+            svg {
+              width: 80%;
+              height: 80%;
+            }
+            &.left {
+              left: 0;
+              transform: rotate(180deg);
+            }
+            &.right {
+              right: 0;
+            }
+          }
+          .carousel-nav {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            .carousel-indicator {
+              display: block;
+              width: 12px;
+              height: 12px;
+              border-radius: 50%;
+              border: 1px solid var(--main-color);
+              cursor: pointer;
+              margin: 4px;
+            }
+            .current-slide {
+              background-color: #551156;
+            }
+          }
+        }
+        .description {
+          margin-top: 25px;
+          margin-bottom: 25px;
+          span {
+            font-weight: 700;
+            color: #a12ca3;
+          }
+          p {
+            color: var(--second-color);
+          }
+        }
+      }
+    }
+
+    .is-hidden {
+      display: none;
+    }
+  }
+  @media (max-width: 992px) {
+    .container {
+      .portfolio-content {
+        flex-direction: column;
+        margin: 0px 10px;
+      }
+      .portfolio-popup {
+        background-color: #04061e;
+
+        .pp-content {
+          background-color: rgba(85, 17, 86, 0.5);
+          width: 88%;
+
+          top: 5%;
+
+          .carousel-track-container {
+            height: 30%;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.contact {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+  .inter-contact {
+    display: flex;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 15px;
+    margin: auto;
+    border-radius: 10px;
+    align-items: center;
+    width: 75%;
+    .content {
+      color: var(--second-color);
+      flex-basis: 50%;
+    }
+    .contact-map {
+      flex-basis: 50%;
+      display: flex;
+      justify-content: flex-end;
+      img {
+        width: 380px;
+        height: 380px;
+        border-radius: 10px;
+      }
+    }
+  }
+  @media (max-width: 992px) {
+    .inter-contact {
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+      .contact-map {
+        img {
+          width: 280px;
+          height: 280px;
+        }
+      }
+    }
+  }
+}
