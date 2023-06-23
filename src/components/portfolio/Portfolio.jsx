@@ -1,20 +1,25 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import "./portfolio.scss";
 import Data from "./Data";
 import close from "../../assets/images/close.svg";
+import Circulair from "./Circulair";
 const Portfolio = () => {
   const imgRef = useRef(null);
   const [current, setCurrent] = useState(0);
-  const [Loaded, setLoaded] = useState(false);
   const [lengthImgs, setLength] = useState(0);
   const [workdata, setWorkData] = useState([]);
   const [popup, setPopUp] = useState(false);
+  const [Loaded, setLoaded] = useState(false);
+
+  const imageLoad = () => {
+    setLoaded(true);
+  };
   const nextSlide = () => {
-    setCurrent(current == lengthImgs - 1 ? 0 : current + 1);
+    setCurrent(current === lengthImgs - 1 ? 0 : current + 1);
     setLoaded(false);
   };
   const prevSlide = () => {
-    setCurrent(current == 0 ? lengthImgs - 1 : current - 1);
+    setCurrent(current === 0 ? lengthImgs - 1 : current - 1);
     setLoaded(false);
   };
   return (
@@ -25,15 +30,7 @@ const Portfolio = () => {
         </div>
         <div className="portfolio-content">
           {Data.map((ele) => {
-            const {
-              id,
-              image,
-              title,
-              images,
-              description,
-              category,
-              technologies,
-            } = ele;
+            const { id, image, title, images, category } = ele;
 
             return (
               <div
@@ -46,7 +43,7 @@ const Portfolio = () => {
                   document.body.classList.add("overflow-hidden");
                 }}
               >
-                <img src={image} alt="" />
+                <img src={image} alt="work" />
                 <div className="caption">
                   <h4>{title}</h4>
                   <p>{category}</p>
@@ -58,26 +55,35 @@ const Portfolio = () => {
 
         <div className={popup ? "portfolio-popup" : "is-hidden"}>
           <div className="pp-content">
-            <a>
-              <div
-                className="pp-header"
-                onClick={() => {
-                  setPopUp(false);
-                  setCurrent(0);
-                  setLength(0);
-                  document.body.classList.remove("overflow-hidden");
-                }}
-              >
-                <img src={close} alt="" />
-              </div>
-            </a>
+            <div
+              className="pp-header"
+              onClick={() => {
+                setPopUp(false);
+                setCurrent(0);
+                setLength(0);
+                document.body.classList.remove("overflow-hidden");
+              }}
+            >
+              <img src={close} alt="close" />
+            </div>
+
             <div className="carousel-track-container">
+              {Loaded === false && (
+                <div className="image-container-overlay">
+                  <Circulair />
+                </div>
+              )}
               <ul ref={imgRef} className="carousel-track">
                 {workdata?.images?.map((imgWork, index) => {
                   return (
                     <li key={index} className="carousel-slide current-slide">
-                      {current == index && (
-                        <img className="carousel-image" src={imgWork} alt="" />
+                      {current === index && (
+                        <img
+                          className="carousel-image"
+                          src={imgWork}
+                          alt="carousel"
+                          onLoad={imageLoad}
+                        />
                       )}
                     </li>
                   );

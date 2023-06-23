@@ -3,7 +3,7 @@ import yasimage from "../../assets/images/yasimage.jpeg";
 import "./about.scss";
 const About = () => {
   const onButtonClick = () => {
-    fetch("Resume-YasmineIsmail.pdf")
+    fetch("YasmineIsmailResume.pdf")
       .then((response) => response.blob())
       .then((blob) => {
         const fileURL = URL.createObjectURL(blob);
