@@ -170,5 +170,25 @@ const Data = [
       "ReactJs, Django, ReactBootstrap, Redux, PostgreSQL, Django Rest Framework, Git",
     category: "ReactJS, Django",
   },
+
+  {
+    id: 7,
+    title: "E-commerce",
+    description: "An e-commerce website",
+    image: HomeEc,
+    images: [HomeEc, products, CartHome],
+    technologies: "Python, Javascript, Django, Bootstrap, sqlite, Git",
+    category: "Django",
+  },
+  {
+    id: 8,
+    title: "NoteList App",
+    description: "A note app allows users to create and manage digital notes.",
+    image: noteapp,
+    images: [noteapp, Note, newnote],
+    technologies:
+      "Python, Javascript, ReactBootstrap, Django, ReactJs, Django Rest Framework, Git",
+    category: "ReactJS, Django",
+  },
 ];
 export default Data;
